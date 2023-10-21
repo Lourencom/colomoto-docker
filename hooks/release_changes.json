@@ -83,6 +83,11 @@
         "description": "Markovian Boolean Stochastic Simulator",
         "release_url": "https://github.com/maboss-bkmc/MaBoSS-env-2.0/releases/tag/v{}"
     },
+    "modrev": {
+        "name": "modrev",
+        "description": "Model Revision Tool for Boolean logical models of biological regulatory networks",
+        "release_url": "https://github.com/FilipeGouveia/ModRev/releases/tag/{}"
+    },
     "mpbn": {
         "name": "mpbn",
         "description": "Brief implementation of Most Permissive Boolean Networks",

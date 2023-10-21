@@ -127,13 +127,15 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        -c daemontus -c pauleve \
+        -c daemontus -c pauleve -c lourencom \
         libsbml-plus-packages=5.20.0=hbee6a8b_0 \
         biodivine_aeon=0.2.0=py310h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.5.3=h2bc3f7f_1 \
         pyboolnet=3.0.10=py_0 \
+        pymodrev=1.2=py_0 \
+        modrev \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

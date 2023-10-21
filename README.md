@@ -93,6 +93,7 @@ access to the following softwares:
 | ERODE | https://github.com/colomoto/ERODE-CoLoMoTo | Backward Boolean Equivalence of Boolean networks | Python module [`erode`](https://github.com/colomoto/ERODE-CoLoMoTo) |
 | GINsim | http://ginsim.org | Boolean and multi-valued network modelling | Python module [`ginsim`](https://github.com/GINsim/GINsim-python) |
 | MaBoSS | http://maboss.curie.fr | Markovian Boolean Stochastic Simulator | Python module [`maboss`](https://github.com/colomoto/pyMaBoSS) |
+| ModRev | https://github.com/FilipeGouveia/ModRev | Model Revision of Boolean logical models | Python module [`pymodrev`](https://github.com/Lourencom/pymodrev) |
 | mpbn | https://github.com/pauleve/mpbn | Most Permissive Boolean Networks | Python module [`mpbn`](https://github.com/pauleve/mpbn) |
 | NORDic | https://github.com/clreda/NORDic | Network Oriented Repurposing of Drugs | Python module [`NORDic`](https://github.com/clreda/NORDic) |
 | NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
