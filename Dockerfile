@@ -39,11 +39,7 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-<<<<<<< HEAD
-RUN CONDA_VERSION="py310_23.5.2-0" && \
-=======
 RUN CONDA_VERSION="py311_23.9.0-0" && \
->>>>>>> 8ce80112f744007b41a10aadca40982470616e24
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -54,10 +50,6 @@ RUN CONDA_VERSION="py311_23.9.0-0" && \
     conda config --add channels conda-forge && \
     conda config --add channels potassco && \
     conda config --add channels colomoto/label/fake && \
-<<<<<<< HEAD
-    conda update --all -y && \
-    conda config --set solver libmamba && \
-=======
     conda config --set solver libmamba && \
     conda update -y  \
         conda-libmamba-solver \
@@ -65,7 +57,6 @@ RUN CONDA_VERSION="py311_23.9.0-0" && \
         libmambapy \
         libarchive && \
     conda update --all -y && \
->>>>>>> 8ce80112f744007b41a10aadca40982470616e24
     conda install --no-update-deps -y \
         openjdk \
         pyqt=5.9.9999 && \
