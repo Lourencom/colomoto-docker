@@ -1,39 +1,45 @@
 #!/bin/bash
 
+# Change project's local PATHs, according to your own installation
+BIOLQM=/home/ptgm/git/bioLQM_Lourenco
+GINSIM=/home/ptgm/git/GINsim-dev
+PYMODREV=/home/ptgm/git/pymodrev
+COLOMOTO=`pwd`
+
 # Define a function for the complete process
 run_all() {
     echo "--------------------- Going into bioLQM -------------------------"
-    cd /home/lourenco/research/colomoto/bioLQM
+    cd $BIOLQM
     echo "---------------------- Compiling bioLQM -------------------------"
-    mvn package
+    mvn package assembly:single -Dmaven.javadoc.skip=true
 
     echo "-------------------- Going into GINsim --------------------------"
-    cd /home/lourenco/research/colomoto/GINsim
+    cd $GINSIM
 
     echo "----------- Installing bioLQM into GINsim -----------------------"
-    mvn install:install-file -Dfile=../bioLQM/target/bioLQM-0.8-SNAPSHOT-jar-with-dependencies.jar -DgroupId=org.colomoto -DartifactId=bioLQM -Dversion=0.8-CUSTOM -Dpackaging=jar
+    mvn install:install-file -Dfile=$BIOLQM/target/bioLQM-0.8-SNAPSHOT-jar-with-dependencies.jar -DgroupId=org.colomoto -DartifactId=bioLQM -Dversion=0.8-CUSTOM -Dpackaging=jar
 
     echo "------------------ Compiling GINsim -----------------------------"
-    mvn package
+    mvn package assembly:single -Dmaven.javadoc.skip=true
 
     echo "-------------------- Copying GINsim fat jar ---------------------"
-    cp target/GINsim-3.0.0b-SNAPSHOT-jar-with-dependencies.jar ../colomoto-docker/tempdocker/GINSIM-fat.jar
+    cp $GINSIM/target/GINsim-3.0.0b-SNAPSHOT-jar-with-dependencies.jar $COLOMOTO/GINSIM-fat.jar
 }
 
 # Define a function for copying and removing pymodrev
 copy_and_remove_pymodrev() {
     echo "------------------- Navigating to tempdocker --------------------"
-    cd /home/lourenco/research/colomoto/colomoto-docker/tempdocker/
+    cd $COLOMOTO
 
     echo "----------------------- Removing modrev -------------------------"
     rm -rf pymodrev
 
     echo "-------------------- Copying pymodrev ---------------------------"
-    cp -rf ../../pymodrev/ .
+    cp -rf $PYMODREV .
 
     echo "--------------------- Copying tutorial --------------------------"
 
-    cp -rf ../../pymodrev/modrev_tutorial.ipynb .
+    cp -rf $PYMODREV/modrev_tutorial.ipynb .
 
     echo "--------------- GINsim ready for colomoto-docker use ------------"
 }
